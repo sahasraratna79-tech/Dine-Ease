@@ -1,0 +1,244 @@
+/* Larger, clearer type with enough room for touch controls and wrapped text. */
+body {
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.topbar nav button,
+.head-right button,
+.demo,
+.role-links button,
+.section-title p,
+.steps p,
+footer,
+.site-footer button,
+.back,
+.page-heading p,
+.menu-head p,
+.notice-box,
+.toast,
+.menu-quick button,
+.searchbox input,
+.veg-toggle,
+.category-row button,
+.food-body p,
+.add-btn,
+.line-top b,
+.line-top strong,
+.remove,
+.clear-cart,
+.text-btn,
+.instruction,
+.cart-foot,
+.cart-empty p,
+.empty p,
+.buddy-head p,
+.buddy-buttons button,
+.order-items p,
+.delay-copy,
+.reject-note,
+.empty-card p,
+.bill-lines > .muted,
+.pay-box > p,
+.field,
+.allocation,
+.worker-items > div,
+.availability-list > div,
+.manager-card > p {
+  font-size: 14px;
+}
+
+.eyebrow,
+.table-tile small,
+.searchbox kbd,
+.food-art b,
+.food-art strong,
+.food-meta span,
+.cart-title > b,
+.qty span,
+.order-card .eyebrow,
+.worker-order .eyebrow,
+.badge,
+.order-items small,
+.smart-wait b,
+.smart-wait p,
+.delay-copy,
+.history b,
+.history small,
+.bill-line small,
+.demo-pay,
+.history-row b,
+.history-row small,
+.history-row strong,
+.bill-side > .muted,
+.allocation-total,
+.stat small,
+.count,
+.worker-items small,
+.manager-food b,
+.manager-food small,
+.price-edit,
+.table-admin b,
+.table-admin small,
+.check-field,
+.tiny,
+.report-stats small,
+.worker-chip,
+.worker-chip span,
+.qr-loading,
+.qr-card code,
+.qr-actions .btn {
+  font-size: 12px;
+}
+
+.brand small {
+  font-size: 10px;
+}
+
+.site-footer span {
+  font-size: 12px;
+}
+
+.hero-copy > p,
+.page-heading p,
+.menu-head p,
+.dashboard-top p,
+.steps p,
+.food-body p,
+.cart-empty p,
+.empty-card p,
+.pay-box > p,
+.manager-card > p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.hero-copy > p {
+  font-size: 17px;
+}
+
+.btn,
+.menu-quick button,
+.buddy-buttons button {
+  font-size: 14px;
+}
+
+.small,
+.worker-actions .btn,
+.req-actions .btn,
+.payment-actions .btn,
+.qr-actions .btn {
+  font-size: 12px;
+}
+
+.floating-card b {
+  font-size: 13px;
+}
+
+.floating-card small,
+.cart-title > b,
+.stat small {
+  font-size: 12px;
+}
+
+.section-title h2 {
+  font-size: 38px;
+}
+
+.page-heading h1,
+.menu-head h1,
+.dashboard-top h1 {
+  font-size: 46px;
+}
+
+.table-tile > b,
+.food-body h3,
+.order-card-head h3,
+.worker-order-head h3,
+.bill-card-title,
+.bill-side h3,
+.buddy-head h3 {
+  font-size: 19px;
+}
+
+.steps h3,
+.empty h3,
+.empty-card h3,
+.pay-box h3,
+.subheading h2,
+.section-h2,
+.report-card h2,
+.manager-card > h3 {
+  font-size: 21px;
+}
+
+.cart-totals > div,
+.bill-totals > div,
+.bill-line b,
+.bill-line strong,
+.history-row b,
+.history-row strong {
+  font-size: 14px;
+}
+
+.cart-totals .grand,
+.bill-totals .grand {
+  font-size: 16px;
+}
+
+.cart-totals .grand b,
+.bill-totals .grand b {
+  font-size: 18px;
+}
+
+.food-meta b,
+.history-row b,
+.history-row strong {
+  font-size: 14px;
+}
+
+.smart-wait b small,
+.smart-wait > div > small {
+  font-size: 11px;
+}
+
+.field input,
+.field select {
+  font-size: 16px;
+  min-height: 42px;
+}
+
+@media (max-width: 650px) {
+  .topbar nav button,
+  .head-right button,
+  .site-footer span,
+  .bottom-actions .btn,
+  .menu-quick button {
+    font-size: 12px;
+  }
+
+  .page-heading h1,
+  .menu-head h1,
+  .dashboard-top h1 {
+    font-size: 36px;
+  }
+
+  .section-title h2 {
+    font-size: 29px;
+  }
+
+  .food-body h3 {
+    font-size: 16px;
+  }
+
+  .food-body p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 390px) {
+  .topbar nav button {
+    font-size: 11px;
+  }
+}
+
