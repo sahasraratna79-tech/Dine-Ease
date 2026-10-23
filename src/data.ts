@@ -1,0 +1,16 @@
+export type Status='Pending Acceptance'|'Accepted'|'Preparing'|'Ready for Serving'|'Served'|'Rejected'|'Cancelled';
+export type Item={id:string;name:string;description:string;price:number;category:string;veg:boolean;available:boolean;emoji:string};
+export type OrderItem={id:string;name:string;price:number;qty:number;note:string};
+export type Order={id:string;table:string;created:number;items:OrderItem[];status:Status;estimate?:number;readyAt?:number;lastUpdate:number;delay?:string;reason?:string;history:{status:string;at:number;note?:string}[]};
+export type Request={id:string;table:string;type:string;created:number;status:'Pending'|'Acknowledged'|'Completed'};
+export type Table={id:string;active:boolean;openedAt?:number};
+export type State={items:Item[];orders:Order[];requests:Request[];tables:Table[];settings:{tax:number;reminders:boolean;reminder30:number;reminder60:number};payments:{table:string;amount:number;at:number}[];allocations:{id:string;label:string;amount:number}[]};
+export const categories=['All','Starters','South Indian','North Indian','Main Course','Snacks','Beverages','Desserts'];
+export const seedItems:Item[]=[
+['idly','Idli Sambar','Steamed rice cakes with house sambar',80,'South Indian',true,'🥣'],['masala-dosa','Masala Dosa','Crisp dosa with potato masala',150,'South Indian',true,'🥞'],['plain-dosa','Ghee Roast Dosa','Golden dosa finished with ghee',140,'South Indian',true,'🥞'],['uttapam','Onion Uttapam','Soft rice pancake with onion',130,'South Indian',true,'🫓'],['paneer-tikka','Paneer Tikka','Charred paneer, mint chutney',240,'Starters',true,'🍢'],['chicken-tikka','Chicken Tikka','Tandoor roasted chicken',290,'Starters',false,'🍗'],['samosa','Punjabi Samosa','Spiced potato in crisp pastry',70,'Snacks',true,'🥟'],['chole','Chole Bhature','Chickpea curry with bhature',190,'North Indian',true,'🍛'],['butter-chicken','Butter Chicken','Creamy tomato curry',320,'Main Course',false,'🍲'],['dal-makhani','Dal Makhani','Slow-cooked black lentils',230,'Main Course',true,'🍲'],['veg-biryani','Veg Dum Biryani','Fragrant basmati and vegetables',210,'Main Course',true,'🍚'],['chicken-biryani','Chicken Biryani','Dum-cooked chicken and basmati',270,'Main Course',false,'🍚'],['mango-lassi','Mango Lassi','Chilled mango yoghurt',100,'Beverages',true,'🥭'],['masala-chai','Masala Chai','Freshly brewed spiced tea',50,'Beverages',true,'☕'],['gulab-jamun','Gulab Jamun','Warm milk dumplings, two pieces',90,'Desserts',true,'🍮'],['brownie','Chocolate Brownie','Warm chocolate brownie',130,'Desserts',true,'🍫'],['lime-soda','Nimbu Soda','Fresh lime, sweet or salted',70,'Beverages',true,'🍋']
+].map(([id,name,description,price,category,veg,emoji])=>({id:String(id),name:String(name),description:String(description),price:Number(price),category:String(category),veg:Boolean(veg),available:true,emoji:String(emoji)}));
+export const fresh=():State=>({items:seedItems,orders:[],requests:[],tables:['T01','T02','T03','T04','T05'].map(id=>({id,active:true,openedAt:Date.now()})),settings:{tax:5,reminders:true,reminder30:30,reminder60:60},payments:[],allocations:[]});
+const KEY='dineease-demo-v1';
+export const load=():State=>{try{const s=localStorage.getItem(KEY);return s?{...fresh(),...JSON.parse(s)}:fresh()}catch{return fresh()}};
+export const save=(s:State)=>localStorage.setItem(KEY,JSON.stringify(s));
+
