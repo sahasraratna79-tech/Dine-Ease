@@ -1,7 +1,7 @@
 export type Status='Pending Acceptance'|'Accepted'|'Preparing'|'Ready for Serving'|'Served'|'Rejected'|'Cancelled';
 export type Item={id:string;name:string;description:string;price:number;category:string;veg:boolean;available:boolean;emoji:string};
 export type OrderItem={id:string;name:string;price:number;qty:number;note:string};
-export type Order={id:string;table:string;created:number;items:OrderItem[];status:Status;estimate?:number;readyAt?:number;lastUpdate:number;delay?:string;reason?:string;history:{status:string;at:number;note?:string}[]};
+export type Order={id:string;backendId?:number;table:string;created:number;items:OrderItem[];status:Status;estimate?:number;readyAt?:number;lastUpdate:number;delay?:string;reason?:string;history:{status:string;at:number;note?:string}[]};
 export type Request={id:string;table:string;type:string;created:number;status:'Pending'|'Acknowledged'|'Completed'};
 export type Table={id:string;active:boolean;openedAt?:number};
 export type State={items:Item[];orders:Order[];requests:Request[];tables:Table[];settings:{tax:number;reminders:boolean;reminder30:number;reminder60:number};payments:{table:string;amount:number;at:number}[];allocations:{id:string;label:string;amount:number}[]};
