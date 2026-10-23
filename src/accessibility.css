@@ -1,7 +1,7 @@
 /* Larger, clearer type with enough room for touch controls and wrapped text. */
 body {
-  font-size: 16px;
-  line-height: 1.55;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 .topbar nav button,
@@ -45,7 +45,7 @@ footer,
 .worker-items > div,
 .availability-list > div,
 .manager-card > p {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .eyebrow,
@@ -88,15 +88,15 @@ footer,
 .qr-loading,
 .qr-card code,
 .qr-actions .btn {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .brand small {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .site-footer span {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .hero-copy > p,
@@ -109,18 +109,18 @@ footer,
 .empty-card p,
 .pay-box > p,
 .manager-card > p {
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .hero-copy > p {
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .btn,
 .menu-quick button,
 .buddy-buttons button {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .small,
@@ -128,27 +128,27 @@ footer,
 .req-actions .btn,
 .payment-actions .btn,
 .qr-actions .btn {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .floating-card b {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .floating-card small,
 .cart-title > b,
 .stat small {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .section-title h2 {
-  font-size: 38px;
+  font-size: 40px;
 }
 
 .page-heading h1,
 .menu-head h1,
 .dashboard-top h1 {
-  font-size: 46px;
+  font-size: 50px;
 }
 
 .table-tile > b,
@@ -158,7 +158,7 @@ footer,
 .bill-card-title,
 .bill-side h3,
 .buddy-head h3 {
-  font-size: 19px;
+  font-size: 21px;
 }
 
 .steps h3,
@@ -169,7 +169,7 @@ footer,
 .section-h2,
 .report-card h2,
 .manager-card > h3 {
-  font-size: 21px;
+  font-size: 23px;
 }
 
 .cart-totals > div,
@@ -178,17 +178,17 @@ footer,
 .bill-line strong,
 .history-row b,
 .history-row strong {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .cart-totals .grand,
 .bill-totals .grand {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .cart-totals .grand b,
 .bill-totals .grand b {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .food-meta b,
@@ -199,7 +199,7 @@ footer,
 
 .smart-wait b small,
 .smart-wait > div > small {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .field input,
@@ -214,25 +214,25 @@ footer,
   .site-footer span,
   .bottom-actions .btn,
   .menu-quick button {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .page-heading h1,
   .menu-head h1,
   .dashboard-top h1 {
-    font-size: 36px;
+    font-size: 40px;
   }
 
   .section-title h2 {
-    font-size: 29px;
+    font-size: 32px;
   }
 
   .food-body h3 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .food-body p {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
