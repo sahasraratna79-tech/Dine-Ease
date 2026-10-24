@@ -1,4 +1,4 @@
-# Tabilo — Scan. Order. Enjoy.
+# Tablio — Scan. Order. Enjoy.
 
 A responsive restaurant ordering and management website built with React, Vite, TypeScript, an Express API, and PostgreSQL. The customer menu and restaurant orders are loaded from the backend. Worker and Manager pages are demo roles, not secure staff authentication.
 
