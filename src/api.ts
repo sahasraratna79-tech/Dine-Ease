@@ -6,7 +6,7 @@ type ApiOrder={id:number|string;table_number:string;items:OrderItem[];status:Sta
 async function request<T>(path:string,init?:RequestInit):Promise<T>{
  const response=await fetch(`${API_BASE}${path}`,{...init,headers:{'Content-Type':'application/json',...init?.headers}});
  const body=await response.json().catch(()=>({}));
- if(!response.ok)throw new Error(body.error||`Tabilo service returned ${response.status}`);
+ if(!response.ok)throw new Error(body.error||`Tablio service returned ${response.status}`);
  return body as T;
 }
 const menuItem=(item:ApiMenuItem):Item=>({...item,price:Number(item.price),available:Boolean(item.available),veg:Boolean(item.veg)});
