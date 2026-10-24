@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import pg from 'pg';
+import { updateMenuAvailability, isMenuItemAvailable } from './availability.js';
 
 const { Pool } = pg;
 const app = express();
@@ -94,7 +95,7 @@ async function initializeDatabase() {
 app.get('/api/health', async (_req, res) => {
   try {
     await pool.query('SELECT 1');
-    res.json({ ok: true, service: 'DineEase API', database: 'connected' });
+    res.json({ ok: true, service: 'Tabilo API', database: 'connected' });
   } catch (error) {
     console.error(error);
     res.status(503).json({ ok: false, database: 'unavailable' });
@@ -108,6 +109,21 @@ app.get('/api/menu', async (_req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Could not load menu.' });
+  }
+});
+
+app.patch('/api/menu/:id/availability', async (req, res) => {
+  const { available } = req.body ?? {};
+  if (typeof available !== 'boolean') {
+    return res.status(400).json({ error: 'Availability must be true or false.' });
+  }
+  try {
+    const result = await updateMenuAvailability(pool, req.params.id, available);
+    if (result.rowCount === 0) return res.status(404).json({ error: 'Menu item not found.' });
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Could not update item availability.' });
   }
 });
 
@@ -132,12 +148,12 @@ app.post('/api/orders', async (req, res) => {
       }
 
       const menuResult = await client.query(
-        'SELECT id,name,price,available FROM menu_items WHERE id = $1',
+        'SELECT id,name,price,available FROM menu_items WHERE id = $1 FOR UPDATE',
         [id]
       );
-      if (menuResult.rowCount === 0 || !menuResult.rows[0].available) {
+      if (!isMenuItemAvailable(menuResult.rows[0])) {
         await client.query('ROLLBACK');
-        return res.status(400).json({ error: `Menu item ${id} is unavailable.` });
+        return res.status(400).json({ error: `Menu item ${menuResult.rows[0]?.name || id} is currently unavailable. Remove it or choose another dish.` });
       }
 
       const menuItem = menuResult.rows[0];
@@ -198,9 +214,10 @@ app.patch('/api/orders/:id/status', async (req, res) => {
 
 app.listen(port, '0.0.0.0', () => {
   initializeDatabase()
-    .then(() => console.log(`DineEase API listening on 0.0.0.0:${port}`))
+    .then(() => console.log(`Tabilo API listening on 0.0.0.0:${port}`))
     .catch(error => {
       console.error('Database initialization failed:', error);
       process.exit(1);
     });
 });
+
