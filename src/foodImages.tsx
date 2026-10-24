@@ -15,13 +15,13 @@ export const foodImages: Record<string, { src: string; alt: string }> = {
   chole: image('photo-1626132647523-66f5bf380027', 'Chole chickpea curry served with bhature'),
   'butter-chicken': image('photo-1603894584373-5ac82b2ae398', 'Butter chicken curry in a traditional bowl'),
   'dal-makhani': image('photo-1788601988466-9f361c34c6cb', 'Rich Indian lentil curry with rice'),
-  'veg-biryani': image('photo-1563379091339-03246963d51a', 'Fragrant vegetable biryani with basmati rice'),
+  'veg-biryani': image('photo-1596560520688-e1ecc9da2099', 'Vegetable biryani served in a blue ceramic bowl'),
   'chicken-biryani': image('photo-1559528896-c5310744cce8', 'Bowl of chicken biryani with basmati rice'),
   'mango-lassi': image('photo-1546173159-315724a31696', 'Chilled mango yogurt smoothie'),
   'masala-chai': image('photo-1571934811356-5cc061b6821f', 'Freshly brewed tea in a cup'),
   'gulab-jamun': image('photo-1593701461250-d7b22dfd3a77', 'Homemade gulab jamun Indian sweets'),
   brownie: image('photo-1606313564200-e75d5e30476c', 'Rich chocolate brownie dessert'),
-  'lime-soda': image('photo-1513558161293-cdaf765edfd47', 'Fresh citrus drink with lime'),
+  'lime-soda': image('photo-1691382075965-3bc7a6db6e3a', 'Glass of soda with a fresh lime slice'),
 };
 
 export function FoodPhoto({ itemId, className = '' }: { itemId: string; className?: string }) {
