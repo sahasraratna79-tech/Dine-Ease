@@ -1,29 +1,27 @@
-# DineEase
+# Tabilo — Scan. Order. Enjoy.
 
-A responsive restaurant ordering and management demo built with React, Vite, TypeScript, and browser `localStorage`.
+A responsive restaurant ordering and management website built with React, Vite, TypeScript, an Express API, and PostgreSQL. The customer menu and restaurant orders are loaded from the backend. Worker and Manager pages are demo roles, not secure staff authentication.
 
 ## Run locally
 
-Install Node.js 20 or later, then from this directory run:
+Install Node.js 20 or later, then run:
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Open the local URL printed by Vite. `npm install` / `npm run dev` also work if npm is your preferred package manager. To create a production bundle, run `pnpm build`; to serve it locally, run `pnpm preview`.
+To create a production bundle, run `pnpm build`; to serve it locally, run `pnpm preview`. Run the availability scenarios with `pnpm test`.
 
-## Try the demo
+## Try the site
 
-- Choose **Start Ordering**, then pick one of T01–T05, or open `/?table=T01`.
-- Add dishes, set quantities and notes, then submit. Orders start as **Pending Acceptance**.
-- Open **Worker** to accept/reject, set kitchen estimates, progress statuses, respond to Table Buddy requests, and change availability.
-- Open **Manager** to update prices and tax, manage table sessions, view local reports, and generate/download/print table QR codes.
-- Open the customer **Running bill** to see accepted items, create split allocations, and simulate payment success, failure, or cancellation.
+- Choose **Start Ordering**, pick T01–T05, or open `/?table=T01`.
+- Browse the menu, add dishes, set quantities and notes, and submit an order.
+- Open **Worker** to manage order status, service requests, and item availability.
+- Open **Manager** to manage menu availability, prices, table sessions, reports, and QR codes.
+- The running bill includes accepted items and supports demo-only bill allocation and payment simulation.
 
-## Demo data and limits
+## Data and limits
 
-All demo data is stored in this browser's `localStorage`. It is not secure authentication, a database, or cross-device synchronization. The payment checkout is simulated and never requests credentials or transfers money. QR URLs derive from the current site origin; generate/print them after deployment if they should point to a public site. Use **Manager → Reset demo data** is not currently provided; clear the browser's `localStorage` key `dineease-demo-v1` to restore the initial sample data.
-
-The pasted project brief ended at the “Table Sessions” heading. This implementation includes active/closed table sessions and prevents closing an unpaid table.
+The Render API and PostgreSQL database are authoritative for menu items, item availability, and restaurant orders. Worker and Manager availability switches save through that API. Customer pages refresh the menu and order queue every 15 seconds, checkout rechecks availability before submission, and the API validates it again under a database row lock. Other demo state (table sessions, service requests, price/tax settings, split allocations, and simulated payments) remains in this browser's `localStorage` and is not synchronized across devices. Staff dashboards are demo roles, not secure authentication. Payment is simulated and never requests credentials or transfers money. Generate and print table QR codes after deployment so their URLs use the public site origin.
 
