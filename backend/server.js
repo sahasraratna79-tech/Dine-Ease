@@ -95,7 +95,7 @@ async function initializeDatabase() {
 app.get('/api/health', async (_req, res) => {
   try {
     await pool.query('SELECT 1');
-    res.json({ ok: true, service: 'Tabilo API', database: 'connected' });
+    res.json({ ok: true, service: 'Tablio API', database: 'connected' });
   } catch (error) {
     console.error(error);
     res.status(503).json({ ok: false, database: 'unavailable' });
@@ -214,7 +214,7 @@ app.patch('/api/orders/:id/status', async (req, res) => {
 
 app.listen(port, '0.0.0.0', () => {
   initializeDatabase()
-    .then(() => console.log(`Tabilo API listening on 0.0.0.0:${port}`))
+    .then(() => console.log(`Tablio API listening on 0.0.0.0:${port}`))
     .catch(error => {
       console.error('Database initialization failed:', error);
       process.exit(1);
